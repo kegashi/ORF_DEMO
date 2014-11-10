@@ -66,7 +66,7 @@ public class CameraPreview {
         return frame;
     }
 
-    //上下左右の4点を取得して計算する
+    //上下左右の4点を取得して計算する(お試し)
     public static int[] average(int frame[], int width1, int height1){
         int above, under, left, right,j;
 

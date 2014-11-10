@@ -3,7 +3,9 @@ package com.example.kazuki.myview7;
 /**
  * Created by kazuki on 2014/11/05.
  */
+        import android.app.AlertDialog;
         import android.content.Context;
+        import android.content.DialogInterface;
         import android.graphics.Bitmap;
         import android.graphics.Canvas;
         import android.graphics.ImageFormat;
@@ -135,7 +137,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
         //ここだけ変えればいいんじゃないか？
         //
-        camerapreview.feature(mGrayResult,mGrayList,mCurrentIndex,width1,height1);
+        camerapreview.feature(mGrayResult, mGrayList, mCurrentIndex, width1, height1);
 
         final SurfaceHolder myHolder = getHolder();
 
@@ -165,4 +167,12 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         mCurrentIndex = (mCurrentIndex + 1) % mGrayList.size();
 
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.d("onTouchEvent","CLICK POINT");
+        bitmap.setPixels(mGrayResult, 0, width1, 0, 0, width1, height1);
+        return true;
+    }
+
 }
